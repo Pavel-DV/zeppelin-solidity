@@ -4,7 +4,7 @@ pragma solidity ^0.4.4;
 import '../ownership/Ownable.sol';
 
 
-contract Migrations is Ownable {
+contract Migration_s is Ownable {
   uint public lastCompletedMigration;
 
   function setCompleted(uint completed) onlyOwner {
@@ -12,7 +12,7 @@ contract Migrations is Ownable {
   }
 
   function upgrade(address newAddress) onlyOwner {
-    Migrations upgraded = Migrations(newAddress);
+    Migration_s upgraded = Migration_s(newAddress);
     upgraded.setCompleted(lastCompletedMigration);
   }
 }
